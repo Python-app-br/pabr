@@ -145,4 +145,10 @@ whitenoise==4.1.2
 python-3.7.0
 
 
+#HEROKU 
 
+heroku help
+'''criar site heroku'''
+heroku create
+
+'''
