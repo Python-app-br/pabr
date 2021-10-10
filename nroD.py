@@ -151,4 +151,8 @@ heroku help
 '''criar site heroku'''
 heroku create
 
-'''
+'''enviar projeto app'''
+git push heroku master
+
+
+
