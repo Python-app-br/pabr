@@ -154,5 +154,11 @@ heroku create
 '''enviar projeto app'''
 git push heroku master
 
+'''migrate'''
+heroku run python manage.py migrate
+
+''' criar superuser'''
+heroku run python manage.py createsuperuser
+
 
 
