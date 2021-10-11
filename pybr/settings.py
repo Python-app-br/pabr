@@ -30,7 +30,12 @@ SECRET_KEY = os.environ['SECRET_KEY']
 #DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
+
+
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
+ALLOWED_HOSTS = ['https://afternoon-oasis-86204.herokuapp.com/', '127.0.0.1']
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
