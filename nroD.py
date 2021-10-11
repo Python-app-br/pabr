@@ -165,7 +165,7 @@ python #abre o shell
 import secrets
 secrets.token_hex(24)
 
-
+teste
 
 #heroku config:set SECRET_KEY=f475de74b02ecfd5622dd4b69dc24e057b2eb18903d9de41
 
