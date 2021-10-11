@@ -31,13 +31,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-#sss
+#sss2222
 
 SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-#DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 #ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
