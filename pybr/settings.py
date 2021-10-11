@@ -25,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-dpm*apqp=oltkdj8m=&6ahmzo*kw+j-^9_ykkeod&)m%25osdq'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
+#SECRET_KEY = os.environ['SECRET_KEY']
+# SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 #ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
 
