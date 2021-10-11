@@ -18,15 +18,20 @@ from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-dpm*apqp=oltkdj8m=&6ahmzo*kw+j-^9_ykkeod&)m%25osdq'
-
-#DEBUG = os.environ.get('DEBUG') == True
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
-
 SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-fw!s($835ma4)-la0v!l9btgc$+936edfm!k(@ozv2@4rfdk)9'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = config('DEBUG', default=False, cast=bool)
+# DEBUG = os.environ.get('DEBUG') == True
+
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
 
 
 
@@ -136,24 +141,21 @@ USE_TZ = True
 # Heroku: Update database configuration from $DATABASE_URL.
 
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# The URL to use when referring to static files (where they will be served from)
+# testando
 STATIC_URL = '/static/'
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 django_heroku.settings(locals())
 

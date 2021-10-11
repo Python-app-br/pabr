@@ -167,6 +167,6 @@ secrets.token_hex(24)
 
 f475de74b02ecfd5622dd4b69dc24e057b2eb18903d9de41
 
-heroku config:set SECRET_KEY=CHAVE
+heroku config:set SECRET_KEY=f475de74b02ecfd5622dd4b69dc24e057b2eb18903d9de41
 
 
