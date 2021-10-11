@@ -10,21 +10,32 @@ import os
 import dj_database_url
 from pathlib import Path
 import django_heroku
-from decouple import config
+from decouple import config, Csv
 
+'''
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+'''
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-dpm*apqp=oltkdj8m=&6ahmzo*kw+j-^9_ykkeod&)m%25osdq'
 
 
-
+#SECRET_KEY = os.environ['SECRET_KEY']
+# SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+#ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , 'https://afternoon-oasis-86204.herokuapp.com/']
-
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -78,11 +89,12 @@ WSGI_APPLICATION = 'pybr.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-
 
 DATABASES = {
-'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
